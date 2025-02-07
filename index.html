@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Be My Valentine?</title>
   <style>
-    /* Basic Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-    /* Body styling with a soft, romantic gradient background */
     body {
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       font-family: Arial, sans-serif;
@@ -20,8 +17,6 @@
       height: 100vh;
       position: relative;
     }
-
-    /* Container for floating animated elements */
     .animation-container {
       position: fixed;
       top: 0;
@@ -32,8 +27,6 @@
       pointer-events: none;
       overflow: hidden;
     }
-
-    /* Main content container; centered content on top of animations */
     .content {
       position: relative;
       z-index: 1;
@@ -46,8 +39,6 @@
       padding: 20px;
       transition: opacity 0.5s ease;
     }
-
-    /* Romantic heading style */
     h1, h3 {
       font-family: 'Brush Script MT', cursive;
       font-size: 3em;
@@ -55,19 +46,14 @@
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
       margin-bottom: 20px;
     }
-
     p {
     }
-
-    /* Button container for spacing */
     .button-container,
     .button-container-2 {
       display: flex;
       gap: 20px;
       margin-top: 20px;
     }
-
-    /* Button styling */
     button {
       padding: 15px 30px;
       font-size: 1.2em;
@@ -76,38 +62,29 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-
     button:active {
       transform: scale(0.95);
     }
-
     button:hover {
       transform: scale(1.05);
     }
-
-    /* Main container buttons */
     #main-yes-btn {
       background-color: #ff6f91;
       color: #fff;
     }
-
     #main-no-btn {
       background-color: #ffc3a0;
       color: #fff;
       position: relative;
     }
-
-    /* Hidden details section – appears after clicking main Yes */
     #details {
       display: none;
       flex-direction: column;
       color: #fff;
       font-size: 1.5em;
       text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-      position: relative; /* So absolute children are positioned relative to this */
+      position: relative;
     }
-
-    /* Secret Detail: Sequential Reveal */
     .secret-detail {
       margin-top: 20px;
     }
@@ -121,7 +98,6 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    /* Style for the "Next" button in secret detail */
     #secret-next-btn {
       padding: 10px 20px;
       font-size: 1em;
@@ -136,8 +112,6 @@
     #secret-next-btn:hover {
       transform: scale(1.05);
     }
-
-    /* ----- Animated Flower Styles in Background ----- */
     .flower {
       position: absolute;
       font-size: 2em;
@@ -157,8 +131,6 @@
         opacity: 0;
       }
     }
-
-    /* ----- Animated Animal Styles in Background ----- */
     .animal {
       position: absolute;
       font-size: 2em;
@@ -172,8 +144,6 @@
         transform: translateY(-20px);
       }
     }
-
-    /* ----- Easter Egg: Dancing Heart ----- */
     .easter-egg {
       font-size: 3em;
       margin-top: 20px;
@@ -189,8 +159,6 @@
       50% { transform: scale(1.3); }
       100% { transform: scale(1); }
     }
-
-    /* ----- Confetti Styles ----- */
     .confetti {
       position: absolute;
       font-size: 2em;
@@ -201,8 +169,6 @@
       0% { transform: translateY(0) rotate(0deg); opacity: 1; }
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
-
-    /* ----- Sprouting Flower Styles ----- */
     .sprout {
       position: absolute;
       font-size: 2em;
@@ -226,27 +192,22 @@
       50% { opacity: 1; }
       100% { transform: translateX(0) scale(1); opacity: 1; }
     }
-
-    /* ----- Plant Wrapper Styles ----- */
     .wrapper {
       height: 350px;
       width: 300px;
       filter: drop-shadow(0 0 6px #aaa);
-      position: absolute; /* Remove from normal flow */
+      position: absolute;
     }
-    /* Position left and right wrappers absolutely within #details */
     .left-wrapper {
-      left: 20px; /* adjust as needed */
+      left: 20px;
       top: 50%;
       transform: translateY(-50%);
     }
     .right-wrapper {
-      right: 20px; /* adjust as needed */
+      right: 20px;
       top: 50%;
       transform: translateY(-50%);
     }
-
-    /* Existing plant and pot styles remain unchanged */
     .wrapper .plant {
       height: 150px;
       width: 6px;
@@ -458,7 +419,6 @@
   </style>
 </head>
 <body>
-  <!-- Animated background elements -->
   <div class="animation-container">
     <div class="flower" style="left: 10%; animation-duration: 10s; animation-delay: 0s;">🌸</div>
     <div class="flower" style="left: 30%; animation-duration: 12s; animation-delay: 2s;">🌺</div>
@@ -469,8 +429,6 @@
     <div class="animal" style="left: 60%; top: 75%;">🐱</div>
     <div class="animal" style="left: 40%; top: 85%;">🐻</div>
   </div>
-
-  <!-- Main Question Container -->
   <div class="content" id="question-container">
     <h1>Will you be my the day after Valentine?</h1>
     <div class="button-container">
@@ -478,13 +436,10 @@
       <button id="main-no-btn">No</button>
     </div>
   </div>
-
-  <!-- Details Container -->
   <div class="content" id="details">
     <h1>Hahah what a simp Susi ❤️</h1>
-    <p>Get ready at 15:00 🫶 I'm going to pick you up<br/></p>
+    <p>Get ready on the 15th February at 15:00 🫶 I'm going to pick you up<br/></p>
     <p>You wanna know what we're doing?<br /></p>
-    <!-- Secret Detail: Sequential Reveal -->
     <div class="secret-detail" id="secret-detail">
       <p class="secret-step">Hahaha you waaaaant to know that badly? 🤭</p>
       <p class="secret-step">Okay okay, I'll tell you. But you sure?</p>
@@ -493,7 +448,6 @@
       <p class="secret-step">After that, we're meeting at Haru's 🍙 so you better bring an empty stomach</p>
       <button id="secret-next-btn">Gimme</button>
     </div>
-
     <div class="date-details">
       <h3>What you need to bring</h3>
       <p>You 🤌</p>
@@ -502,8 +456,6 @@
       <p>The most cozy girlfriend outfit ever 📸 for example <a href="https://pin.it/5676pnHM4" target="_blank">here</a> <br/>(but tbh wear something that makes you feel comfy 😊)</p>
       <p>And if you want but not required, amenities 🤭</p>
     </div>
-
-    <!-- Plant wrappers are now absolutely positioned so they don't affect the centered text -->
     <div class="wrapper left-wrapper">
       <div class="plant">
         <div class="flower">
@@ -519,7 +471,6 @@
         <div class="top"></div>
       </div>
     </div>
-
     <div class="wrapper right-wrapper">
       <div class="plant">
         <div class="flower">
@@ -536,10 +487,8 @@
       </div>
     </div>
   </div>
-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Make the main "No" button dodge the mouse on hover.
       const mainNoBtn = document.getElementById('main-no-btn');
       mainNoBtn.addEventListener('mouseenter', () => {
         const newLeft = Math.random() * (window.innerWidth - mainNoBtn.offsetWidth);
@@ -548,16 +497,12 @@
         mainNoBtn.style.left = newLeft + 'px';
         mainNoBtn.style.top = newTop + 'px';
       });
-
-      // When the main "Yes" button is clicked, hide the question and show the details.
       const mainYesBtn = document.getElementById('main-yes-btn');
       mainYesBtn.addEventListener('click', () => {
         document.getElementById('question-container').style.display = 'none';
         document.getElementById('details').style.display = 'flex';
-        sproutFlowers();  // Launch the sprouting effect
+        sproutFlowers();
       });
-
-      // Function to launch confetti (using the 🎉 emoji)
       function launchConfetti() {
         const confettiCount = 20;
         for (let i = 0; i < confettiCount; i++) {
@@ -571,8 +516,6 @@
           setTimeout(() => { confetti.remove(); }, 5000);
         }
       }
-
-      // Function to sprout flowers from the sides.
       function sproutFlowers() {
         const sproutCount = 6;
         for (let i = 0; i < sproutCount; i++) {
@@ -588,12 +531,9 @@
           }, i * 500);
         }
       }
-
-      // Secret Detail: Sequential reveal.
       const secretSteps = document.querySelectorAll('.secret-step');
       let currentStep = 0;
       const secretNextBtn = document.getElementById('secret-next-btn');
-
       secretNextBtn.addEventListener('click', () => {
         if (currentStep < secretSteps.length) {
           secretSteps[currentStep].style.display = 'block';
